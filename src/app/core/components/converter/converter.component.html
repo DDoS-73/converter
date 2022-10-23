@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="card__title">
+    <h2>Currency Converter</h2>
+  </div>
+  <div class="card__body">
+    <div class="currency-control">
+      <input type="number" [ngModel]="amount1 | round" (input)="handleFirstInput($event)">
+      <select [ngModel]="currency1" (change)="handleFirstSelect($event)">
+        <option
+          *ngFor="let currency of currencies | async"
+          [value]="currency"
+          [selected]="currency === 'USD'"
+        >{{currency}}
+        </option>
+      </select>
+    </div>
+    <strong>=</strong>
+    <div class="currency-control">
+      <input type="number" [ngModel]="amount2 | round" (input)="handleSecondInput($event)">
+      <select [ngModel]="currency2" (change)="handleSecondSelect($event)">
+        <option
+          *ngFor="let currency of currencies | async"
+          [value]="currency"
+          [selected]="currency === 'UAH'"
+        >{{currency}}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
